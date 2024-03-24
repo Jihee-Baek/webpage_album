@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title th:text="${user.name}"></title>
+	</head>
+	<body>
+        <h1>add</h1>
+
+		<div>
+			<a th:href="@{/management/{id}/group (id=${user.idx})}" method="get">1. Group</a>
+			<a th:href="@{/management/{id}/relation (id=${user.idx})}" method="get">2. Relation</a>
+			<a th:href="@{/management/{id}/member (id=${user.idx})}" method="get">3. Member</a>
+		</div>
+
+    </body>
+</html>
