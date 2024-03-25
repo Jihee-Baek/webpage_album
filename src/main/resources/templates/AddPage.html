@@ -6,67 +6,77 @@
 		<title th:text="${user.name}"></title>
 	</head>
 	<body>
-        <div>
-            <h1>add group</h1>
+        <!-- <div>
+            <a th:href="@{./main/{id}(id=${user.idx})}">되돌아가기</a>
+        </div> -->
 
-            <form th:action="@{/management/{id}/group (id=${user.idx})}" method="post">
-                <div>
-                    <label for="add-group">Group:</label>
-                    <input type="text" id="add-group" name="add-group" required>
+        <div class="flex-container">
+			<div class="flex-item">
+                <h1>add group</h1>
+
+                <form th:action="@{/management/{id}/group (id=${user.idx})}" method="post">
+                    <div>
+                        <label for="add-group">Group:</label>
+                        <input type="text" id="add-group" name="add-group" required>
+                    </div>
+                    <button type="submit">등록하기</button>
+                </form>
+
+                <div th:if="${addedgroup}" class="added-message">
+                    <p th:text="${addedgroupmessage}"></p>
                 </div>
-                <button type="submit">등록하기</button>
-            </form>
+            </div>
 
-            <div th:if="${addedgroup}" class="added-message">
-                <p th:text="${addedgroupmessage}"></p>
+            <div class="flex-item">
+                <h1>add relation</h1>
+
+                <form th:action="@{/management/{id}/relation (id=${user.idx})}" method="post">
+                    <div>
+                        <label for="add-relation">Relation:</label>
+                        <input type="text" id="add-relation" name="add-relation" required>
+                    </div>
+                    <button type="submit">등록하기</button>
+                </form>
+
+                <div th:if="${addedrelation}" class="added-message">
+                    <p th:text="${addedrelationmessage}"></p>
+                </div>
+            </div>
+
+            <div class="flex-item">
+                <h1>add member</h1>
+
+                <form th:action="@{/management/{id}/member (id=${user.idx})}" method="post">
+                    <div>
+                        <label for="add-member">Member:</label>
+                        <input type="text" id="add-member" name="add-member" required>
+                    </div>
+                    <div>
+                        <label for="groupidx">group</label>
+                        <select th:id="groupidx" th:name="groupidx" required>
+                            <option value="0">선택하세요</option>
+                            <option th:each="group: ${groups}" th:value="${group.idx}" th:text="${group.name}"></option>
+                        </select>
+
+                        <label for="relationidx">relation</label>
+                        <select th:id="relationidx" th:name="relationidx" required>
+                            <option value="0">선택하세요</option>
+                            <option th:each="relation: ${relations}" th:value="${relation.idx}" th:text="${relation.name}"></option>
+                        </select>
+                    </div>
+
+                    <button type="submit">등록하기</button>
+                </form>
+
+                <div th:if="${addedmember}" class="added-message">
+                    <p th:text="${addedmembermessage}"></p>
+                </div>
             </div>
         </div>
 
-        <div>
-            <h1>add relation</h1>
+        <hr />
 
-            <form th:action="@{/management/{id}/relation (id=${user.idx})}" method="post">
-                <div>
-                    <label for="add-relation">Relation:</label>
-                    <input type="text" id="add-relation" name="add-relation" required>
-                </div>
-                <button type="submit">등록하기</button>
-            </form>
-
-            <div th:if="${addedrelation}" class="added-message">
-                <p th:text="${addedrelationmessage}"></p>
-            </div>
-        </div>
-
-        <div>
-            <h1>add member</h1>
-
-            <form th:action="@{/management/{id}/member (id=${user.idx})}" method="post">
-                <div>
-                    <label for="add-member">Member:</label>
-                    <input type="text" id="add-member" name="add-member" required>
-                </div>
-                <div>
-                    <label for="groupidx">group</label>
-                    <select th:id="groupidx" th:name="groupidx" required>
-                        <option value="0">선택하세요</option>
-                        <option th:each="group: ${groups}" th:value="${group.idx}" th:text="${group.name}"></option>
-                    </select>
-
-                    <label for="relationidx">relation</label>
-                    <select th:id="relationidx" th:name="relationidx" required>
-                        <option value="0">선택하세요</option>
-                        <option th:each="relation: ${relations}" th:value="${relation.idx}" th:text="${relation.name}"></option>
-                    </select>
-                </div>
-
-                <button type="submit">등록하기</button>
-            </form>
-
-            <div th:if="${addedmember}" class="added-message">
-                <p th:text="${addedmembermessage}"></p>
-            </div>
-        </div>
+        
 
     </body>
 </html>

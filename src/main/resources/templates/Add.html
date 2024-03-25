@@ -14,5 +14,12 @@
 			<a th:href="@{/management/{id}/member (id=${user.idx})}" method="get">3. Member</a>
 		</div>
 
+		<div>
+			<form name="form" method="post" action="http://localhost:8080/photo" enctype="multipart/form-data">
+				<input type="file" name="files" multiple="multiple"/>
+				<input type="submit" id="submit" value="업로드"/>
+			</form>
+		</div>
+
     </body>
 </html>

@@ -7,6 +7,7 @@ import java.util.List;
 import com.prj.sbforsvc.Member.Group;
 import com.prj.sbforsvc.Member.Member;
 import com.prj.sbforsvc.Member.Relation;
+import com.prj.sbforsvc.Photo.Photo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -51,13 +52,16 @@ public class User {
     private LocalDateTime created_at;
 
     @OneToMany(mappedBy = "user")
-    private List<Member> members = new ArrayList<>();
+    private final List<Member> members = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<Group> groups = new ArrayList<>();
+    private final List<Group> groups = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<Relation> relations = new ArrayList<>();
+    private final List<Relation> relations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private final List<Photo> photos = new ArrayList<>();
 
     public void setValue(User user) {
         this.idx = user.getIdx();

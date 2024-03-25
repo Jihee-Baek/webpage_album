@@ -3,19 +3,10 @@ package com.prj.sbforsvc.Member;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.prj.sbforsvc.DataNotFoundException;
-import com.prj.sbforsvc.Member.Group;
-import com.prj.sbforsvc.Member.GroupRepository;
-import com.prj.sbforsvc.Member.Member;
-import com.prj.sbforsvc.Member.MemberRepository;
-import com.prj.sbforsvc.Member.Relation;
-import com.prj.sbforsvc.Member.RelationRepository;
 import com.prj.sbforsvc.User.User;
 import com.prj.sbforsvc.User.UserRepository;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MemberServiceImpl implements MemberService {
